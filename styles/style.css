@@ -86,6 +86,7 @@ body {
   width: 208px;
   height: 50px;
   background: var(--Primary);
+  border: 1px solid inherit;
   border-radius: 2px;
   color: #ffffff;
   transition: background 0.4s;
@@ -94,13 +95,11 @@ body {
   background: #ff3838;
 }
 .card__avatar {
-  display: block;
-  border: 1px solid inherit;
-  border-radius: 50%;
-}
-.card__avatar img {
   width: 245px;
-  height: auto;
+  height: 245px;
+  border-radius: 50%;
+  background-image: url(/images/avatar.jpg);
+  background-size: cover;
 }
 
 .container__posts {
@@ -135,9 +134,9 @@ body {
   color: #007e99;
 }
 .posts__example {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .post {
@@ -149,6 +148,14 @@ body {
 }
 .post:last-child {
   margin-right: 0;
+}
+.post a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.4s;
+}
+.post a:hover {
+  opacity: 0.7;
 }
 .post h3 {
   font-weight: 700;
@@ -196,16 +203,26 @@ body {
 }
 
 .work__img {
-  display: contents;
+  width: 245px;
+  height: 180px;
+}
+.work__img img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
 }
 .work__info {
   margin-left: 20px;
+  max-width: 550px;
 }
-
-.work__img img {
-  width: 245px;
-  height: auto;
-  border-radius: 6px;
+.work__info a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.4s;
+}
+.work__info a:hover {
+  opacity: 0.7;
 }
 .work__info h2 {
   font-weight: 700;
@@ -273,10 +290,24 @@ body {
   text-align: center;
 }
 
+@media (max-width: 1170px) {
+  .card__info {
+    margin-right: 50px;
+    max-width: 450px;
+  }
+  .work__info {
+    max-width: 500px;
+  }
+}
+
 @media (max-width: 1070px) {
+  .card__about {
+    margin: 0 75px;
+  }
   .post__about {
     margin: 0 75px;
   }
+
   .posts_headline {
     font-size: 16px;
     padding: 10px;
@@ -291,9 +322,9 @@ body {
   }
 }
 
-@media (max-width: 940px) {
-  .card__about {
-    margin: 0 75px;
+@media (max-width: 945px) {
+  .card__info {
+    max-width: 350px;
   }
   .card__info h1 {
     font-size: 32px;
@@ -306,14 +337,17 @@ body {
   .download__btn {
     width: 208px;
   }
-
   .posts__example {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .post {
     margin-right: 0;
     margin-bottom: 20px;
     font-size: 18px;
+  }
+  .work__info {
+    max-width: 425px;
   }
 }
 @media (max-width: 900px) {
@@ -327,16 +361,22 @@ body {
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 840px) {
+  .post__about {
+    margin: 0 25px;
+  }
+  .card__about {
+    margin: 0 25px;
+  }
   .card__info {
-    margin-right: 75px;
+    margin-right: 30px;
+  }
+  .card__avatar {
+    width: 180px;
+    height: 180px;
   }
   .header {
     margin-bottom: 75px;
-  }
-  .card__avatar img {
-    width: 175px;
-    height: auto;
   }
   .work__info h2 {
     font-size: 24px;
@@ -344,16 +384,30 @@ body {
     margin-bottom: 15px;
   }
   .works {
-    margin: 20px;
+    margin: 0 25px;
   }
 }
 
-@media (max-width: 730px) {
+@media (max-width: 740px) {
   .work__line {
     width: 600px;
   }
   .download__btn {
     margin-bottom: 60px;
+  }
+  .work {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .work__info {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .work__img {
+    width: 330px;
+    height: 230px;
+  }
+  .work__img img {
   }
 }
 @media (max-width: 660px) {
@@ -373,6 +427,9 @@ body {
   .card__info p {
     text-align: center;
     margin-bottom: 30px;
+  }
+  .work__line {
+    width: 575px;
   }
 }
 
@@ -394,18 +451,7 @@ body {
     text-align: center;
     margin-bottom: 10px;
   }
-  .work {
-    flex-direction: column;
-    align-items: centers;
-  }
-  .work__info {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-  .work__img img {
-    width: 345px;
-    height: auto;
-  }
+
   .contacts {
     margin: 50px 70px;
   }
@@ -505,7 +551,7 @@ body {
     align-items: center;
   }
   .work__line {
-    width: 345px;
+    width: 375px;
   }
 }
 @media (max-width: 400px) {
@@ -522,6 +568,9 @@ body {
   }
   .post__data {
     margin-bottom: 10px;
+  }
+  .work__line {
+    width: 325px;
   }
 }
 
